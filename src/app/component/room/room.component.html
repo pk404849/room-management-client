@@ -1,0 +1,99 @@
+<div class="container mt-3 ">
+  <div id="accordion" class="add-room">
+    <div class="card">
+      <div class="card-header">
+        <a class="btn" data-bs-toggle="collapse" href="#collapseOne">
+         <span><b>ADD ROOM</b></span> 
+        </a>
+      </div>
+      <div id="collapseOne" class="collapse " data-bs-parent="#accordion">
+        <div class="card-body">
+            <div class="container ">
+                <div class="form-group row">
+                   <label for="staticEmail" class="col-sm-3 col-form-label"> <b>Floor Number</b></label>
+                    <div class="col-sm-9">
+                      <!-- <input type="text"  class="form-control" id="floor" [(ngModel)]="roomModel.floorNumber" placeholder="Enter floor number"> -->
+                      <select class="form-control" id="floorNumber" [(ngModel)]="roomModel.floorNumber">
+                        <option [ngValue]="null">Select floor number</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="5">4</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <label for="roomNumber" class="col-sm-3 col-form-label">Room Number</label>
+                    <div class="col-sm-9">
+                      <input type="text" class="form-control" id="roomNumber" [(ngModel)]="roomModel.roomNumber" placeholder="Enter room number">
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <label for="roomNumber" class="col-sm-3 col-form-label">Room Type</label>
+                    <div class="col-sm-9">
+                      <!-- <input type="text" class="form-control" id="roomType" [(ngModel)]="roomModel.roomType" placeholder="Enter room type"> -->
+                      <select class="form-control" id="roomType" [(ngModel)]="roomModel.roomType">
+                        <option [ngValue]="null">Select room type</option>
+                        <option value="AC">AC</option>
+                        <option value="NON-AC" >NON-AC</option>
+                    </select>
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <label for="roomNumber" class="col-sm-3 col-form-label">Room Fare</label>
+                    <div class="col-sm-9">
+                      <input type="text" class="form-control" id="roomFare" [(ngModel)]="roomModel.roomFare" placeholder="Enter room fare">
+                    </div>
+                  </div> 
+                  <div class="form-group row">
+                    <label for="roomNumber" class="col-sm-3 col-form-label"></label>
+                    <div class="col-sm-9">
+                        <button type="button" class="btn btn-success"  (click)="addRoom()">Add Room</button>
+                    </div>
+                  </div> 
+            </div>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-header">
+        <a class="collapsed btn" data-bs-toggle="collapse" href="#collapseTwo">
+            <span><b>ROOM LIST</b></span> 
+      </a>
+      </div>
+      <div id="collapseTwo" class="collapse show" data-bs-parent="#accordion">
+        <div class="card-body">
+          <table class="table table-striped">
+            <thead class="thead-dark">
+              <tr>
+                <th scope="col">Floor Number</th>
+                <th scope="col">Room Number</th>
+                <th scope="col">Room Type</th>
+                <th scope="col">Booked</th>
+                <th scope="col">Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <!-- {{roomList}} -->
+              <tr *ngFor="let data of roomList">
+                <td>{{data.floorNumber}}</td>
+                <td>{{data.roomNumber}}</td>
+                <td>{{data.roomType}}</td>
+                <td>{{data.isBooked}}</td>
+                
+                <td>
+                  <a class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
+                  <a class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
+                </td> 
+              </tr>
+              
+            </tbody>
+          </table>
+          
+         
+        </div>
+      </div>
+    </div>
+  
+  </div>
+</div>

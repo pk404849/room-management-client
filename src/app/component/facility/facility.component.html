@@ -1,0 +1,140 @@
+<div class="container mt-3 ">
+    <div id="accordion" class="add-facility">
+      <div class="card">
+        <div class="card-header">
+          <a class="btn" data-bs-toggle="collapse" href="#collapseOne">
+           <span><b>ADD Facility</b></span> 
+          </a>
+        </div>
+        <div id="collapseOne" class="collapse " data-bs-parent="#accordion">
+          <div class="card-body">
+              <div class="container ">
+                <div class="form-group row">
+                  <label for="roomId" class="col-sm-3 col-form-label"> <b>Room Number</b></label>
+                   <div class="col-sm-9">
+                     <!-- <input type="text"  class="form-control" id="floor" [(ngModel)]="roomModel.floorNumber" placeholder="Enter floor number"> -->
+                     <select class="form-control"  [(ngModel)]="facilityModel.roomId" id="roomId" >
+                       <option [ngValue]="null"><b>Select room number</b></option>
+                       <option class="option" [ngValue]="room.id" *ngFor="let room of nullFacilityRoomList" 
+                       [ngValue]="room.id">{{room.roomNumber}}-{{room.roomType}}</option>
+                     </select>
+                   </div>
+                 </div>
+                  <div class="form-group row">
+                     <label for="hasTV" class="col-sm-3 col-form-label"> <b>Has TV</b></label>
+                      <div class="col-sm-9">
+                        <!-- <input type="text"  class="form-control" id="floor" [(ngModel)]="roomModel.floorNumber" placeholder="Enter floor number"> -->
+                        <select class="form-control"  [(ngModel)]="facilityModel.hasTV" id="hasTV" >
+                          <option [ngValue]="null"><b>Select TV</b></option>
+                          <option value="Yes">Yes</option>
+                          <option value="No">No</option>
+                        </select>
+                      </div>
+                    </div>
+                    <div class="form-group row">
+                      <label for="hasWIFI" class="col-sm-3 col-form-label"><b>Has WIFI</b></label>
+                      <div class="col-sm-9">
+                        <select class="form-control"  [(ngModel)]="facilityModel.hasWIFI" id="hasWIFI" >
+                            <option [ngValue]="null"><b>Select WIFI</b></option>
+                            <option value="Yes">Yes</option>
+                            <option value="No">No</option>
+                          </select>
+                      </div>
+                    </div>
+                    <div class="form-group row">
+                      <label for="hasGizer" class="col-sm-3 col-form-label"><b>Has Gizer</b></label>
+                      <div class="col-sm-9">
+                        <!-- <input type="text" class="form-control" id="roomType" [(ngModel)]="roomModel.roomType" placeholder="Enter room type"> -->
+                        <select class="form-control"  [(ngModel)]="facilityModel.hasGizer" id="hasGizer" >
+                            <option [ngValue]="null">Select Gizer</option>
+                            <option value="Yes">Yes</option>
+                            <option value="No">No</option>
+                          </select>
+                      </div>
+                    </div>
+                    <div class="form-group row">
+                      <label for="hasPhone" class="col-sm-3 col-form-label"><b>Has Phone</b></label>
+                      <div class="col-sm-9">
+                        <select class="form-control"  [(ngModel)]="facilityModel.hasPhone" id="hasPhone" >
+                            <option [ngValue]="null">Select Phone</option>
+                            <option value="Yes">Yes</option>
+                            <option value="No">No</option>
+                          </select>
+                      </div>
+                    </div> 
+                    <div class="form-group row">
+                        <label for="hasLift" class="col-sm-3 col-form-label"><b>Has Lift</b></label>
+                        <div class="col-sm-9">
+                          <select class="form-control"  [(ngModel)]="facilityModel.hasLift" id="hasLift" >
+                              <option [ngValue]="null">Select Lift</option>
+                              <option value="Yes">Yes</option>
+                              <option value="No">No</option>
+                            </select>
+                        </div>
+                      </div> 
+                      <div class="form-group row">
+                        <label for="hasAC" class="col-sm-3 col-form-label"><b>Has AC</b></label>
+                        <div class="col-sm-9">
+                          <select class="form-control"  [(ngModel)]="facilityModel.hasAC" id="hasAC" >
+                              <option [ngValue]="null">Select AC</option>
+                              <option value="Yes">Yes</option>
+                              <option value="No">No</option>
+                            </select>
+                        </div>
+                      </div> 
+                    <div class="form-group row">
+                      <label for="roomNumber" class="col-sm-3 col-form-label"></label>
+                      <div class="col-sm-9">
+                          <button type="button" class="btn btn-success" (click)="addFacility()" >Add Facility</button>
+                      </div>
+                    </div> 
+              </div>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header">
+          <a class="collapsed btn" data-bs-toggle="collapse" href="#collapseTwo">
+              <span><b>Facility LIST</b></span> 
+        </a>
+        </div>
+        <div id="collapseTwo" class="collapse show" data-bs-parent="#accordion">
+          <div class="card-body">
+            <table class="table table-striped">
+              <thead class="thead-dark">
+                <tr>
+                  <th scope="col">Has TV</th>
+                  <th scope="col">Has WIFI</th>
+                  <th scope="col">Has Gizer</th>
+                  <th scope="col">Has Phone</th>  
+                  <th scope="col">Has Lift</th> 
+                  <th scope="col">Has AC</th> 
+                  <th scope="col">Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                <!-- {{roomList}} -->
+                <tr >
+                  <tr *ngFor="let data of facilityList">
+                    <td>{{data.hasTV}}</td>
+                    <td>{{data.hasWIFI}}</td>
+                    <td>{{data.hasGizer}}</td>
+                    <td>{{data.hasPhone}}</td>
+                    <td>{{data.hasLift}}</td>
+                    <td>{{data.hasAC}}</td>
+                   <td>
+                    <a class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
+                    <a class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
+                  </td> 
+                </tr>
+                
+              </tbody>
+            </table>
+            
+           
+          </div>
+        </div>
+      </div>
+    
+    </div>
+  </div>
