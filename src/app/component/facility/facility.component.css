@@ -10,3 +10,10 @@ table.table td a.delete {
     color: #E34724;
     cursor: pointer;
 }
+
+.thead-dark{
+    text-align: center;
+}
+.data-align{
+    text-align: center;
+}

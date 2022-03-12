@@ -22,10 +22,12 @@ export class RoomComponent implements OnInit {
     this.commonService.addRoom(this.roomModel).subscribe((res: any) => {
       if (res.status && res.message != '') {
         alert(res.message);
+        this.roomModel = new RoomModel();
+        this.findAllRoom();
       }
     });
     console.log(this.roomModel);
-    this.findAllRoom();
+    
   }
 
    roomList:any;

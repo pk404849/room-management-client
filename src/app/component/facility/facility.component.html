@@ -103,6 +103,7 @@
             <table class="table table-striped">
               <thead class="thead-dark">
                 <tr>
+                  <th scope="col">Room Number</th>
                   <th scope="col">Has TV</th>
                   <th scope="col">Has WIFI</th>
                   <th scope="col">Has Gizer</th>
@@ -112,16 +113,18 @@
                   <th scope="col">Action</th>
                 </tr>
               </thead>
-              <tbody>
+              <tbody class="data-align">
                 <!-- {{roomList}} -->
-                <tr >
+                <tr>
                   <tr *ngFor="let data of facilityList">
+                    <td>{{data.roomNumber}}</td>
                     <td>{{data.hasTV}}</td>
                     <td>{{data.hasWIFI}}</td>
                     <td>{{data.hasGizer}}</td>
                     <td>{{data.hasPhone}}</td>
                     <td>{{data.hasLift}}</td>
                     <td>{{data.hasAC}}</td>
+                   
                    <td>
                     <a class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
                     <a class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>

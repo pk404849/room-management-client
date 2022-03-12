@@ -14,11 +14,11 @@ export class FacilityComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.findAllRoomWithNullFacility();
     this.findAllFacility();
+    this.findAllRoomWithNullFacility();
   }
 
-  facilityModel = new FacilityModel();
+
   nullFacilityRoomList:any;
   findAllRoomWithNullFacility() {
     this.commonService.findAllRoomWithNullFacility().subscribe((res: any) => {
@@ -38,7 +38,16 @@ export class FacilityComponent implements OnInit {
     });
   }
 
+  facilityModel = new FacilityModel();
   addFacility(){
+    this.commonService.addFacility(this.facilityModel).subscribe((res:any)=>{
+      if(res.status){
+        alert(res.message);
+        this.facilityModel = new FacilityModel();
+        this.findAllFacility();
+      }
+    });
     
+    console.log('addfacility : '+this.facilityList);
   }
 }

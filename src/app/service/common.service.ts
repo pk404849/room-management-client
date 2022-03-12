@@ -51,4 +51,14 @@ export class CommonService {
     }
     return this.httpClient.get(`${this.baseUrl}/facility/find-all-facility`,httpOptions);
   }
+
+  addFacility(facilityModel: Object): Observable<any> {
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Accept': 'application/json',
+      })
+    }
+    return this.httpClient.post(`${this.baseUrl}/facility/add-facility`, JSON.stringify(facilityModel), httpOptions);
+  }
 }

@@ -7,4 +7,5 @@ export class FacilityModel {
     hasLift: any=null;
     hasAC: any=null;
     roomId: any=null;
+    roomNumber:any=null;
 }
