@@ -10,7 +10,7 @@ export class CommonService {
   constructor(
     private httpClient: HttpClient
   ) { }
-  private baseUrl = 'http://localhost:9000';
+  private baseUrl = 'https://room-management-server.herokuapp.com';
 
   addRoom(roomModel: Object): Observable<any> {
     const httpOptions = {
