@@ -61,4 +61,33 @@ export class CommonService {
     }
     return this.httpClient.post(`${this.baseUrl}/facility/add-facility`, JSON.stringify(facilityModel), httpOptions);
   }
+  addResident(residentModel: Object): Observable<any> {
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Accept': 'application/json',
+      })
+    }
+    return this.httpClient.post(`${this.baseUrl}/resident/add-resident`, JSON.stringify(residentModel), httpOptions);
+  }
+
+  findAllResident(): Observable<any>{
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type':  'application/json',
+        'Accept': 'application/json',
+      })
+    }
+    return this.httpClient.get(`${this.baseUrl}/resident/find-all-resident`,httpOptions);
+  }
+
+  findAllWithoutBookedRoom(): Observable<any>{
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type':  'application/json',
+        'Accept': 'application/json',
+      })
+    }
+    return this.httpClient.get(`${this.baseUrl}/room/find-all-without-booked-room`,httpOptions);
+  }
 }

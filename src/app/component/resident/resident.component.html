@@ -1,1 +1,117 @@
-<p>resident works!</p>
+<div class="container mt-3 ">
+    <div id="accordion" class="add-room">
+      <div class="card">
+        <div class="card-header">
+          <a class="btn" data-bs-toggle="collapse" href="#collapseOne">
+           <span><b>ADD RESIDENT</b></span> 
+          </a>
+        </div>
+        <div id="collapseOne" class="collapse " data-bs-parent="#accordion">
+          <div class="card-body">
+              <div class="container ">
+                <div class="form-group row">
+                    <label for="roomNumber" class="col-sm-3 col-form-label"><b>Room Number</b></label>
+                    <div class="col-sm-9">
+                      <select class="form-control"  [(ngModel)]="residentModel.roomId" id="roomId" >
+                        <option [ngValue]="null">Select room number</option>
+                        <option class="option" [ngValue]="room.id" *ngFor="let room of withoutBookedRoomList" 
+                        [ngValue]="room.id">{{room.roomNumber}}-{{room.roomType}}</option>
+                      </select>
+                    </div>
+                  </div> 
+                  <div class="form-group row">
+                     <label for="residentIdProof" class="col-sm-3 col-form-label"> <b>Resident Id Proof</b></label>
+                      <div class="col-sm-9">
+                        <input type="text"  class="form-control" id="residentIdProof" [(ngModel)]="residentModel.residentIdProof" placeholder="Enter id proof">
+                    </div>
+                    </div>
+                    <div class="form-group row">
+                      <label for="residentName" class="col-sm-3 col-form-label"><b>Resident Name</b></label>
+                      <div class="col-sm-9">
+                        <input type="text" class="form-control" id="residentName" [(ngModel)]="residentModel.residentName" placeholder="Enter resident name">
+                      </div>
+                    </div>
+                    <div class="form-group row">
+                      <label for="residentAddress" class="col-sm-3 col-form-label"><b>Resident Address</b></label>
+                      <div class="col-sm-9">
+                        <input type="text" class="form-control" id="residentAddress" [(ngModel)]="residentModel.residentAddress" placeholder="Enter resident address">
+                      </div>
+                    </div>
+                    <div class="form-group row">
+                      <label for="residentPhoneNo" class="col-sm-3 col-form-label"><b>Resident Phone No.</b></label>
+                      <div class="col-sm-9">
+                        <input type="text" class="form-control" id="residentPhoneNo" [(ngModel)]="residentModel.residentPhoneNo" placeholder="Enter resident phone no.">
+                      </div>
+                    </div> 
+                    <!-- <div class="form-group row">
+                        <label for="checkInTime" class="col-sm-3 col-form-label"><b>Check In Time</b></label>
+                        <div class="col-sm-9">
+                          <input type="date" class="form-control" id="checkInTime" [(ngModel)]="residentModel.checkInTime" placeholder="Enter checkIn time">
+                        </div>
+                      </div> 
+                      <div class="form-group row">
+                        <label for="checkOutTime" class="col-sm-3 col-form-label"><b>Check Out Time</b></label>
+                        <div class="col-sm-9">
+                          <input type="date" class="form-control" id="checkOutTime" [(ngModel)]="residentModel.checkOutTime" placeholder="Enter checkOut Time">
+                        </div>
+                      </div>  -->
+                     
+                    <div class="form-group row">
+                      <label for="roomNumber" class="col-sm-3 col-form-label"></label>
+                      <div class="col-sm-9">
+                          <button type="button" class="btn btn-success"  (click)="addResident()">Add Resident</button>
+                      </div>
+                    </div> 
+              </div>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header">
+          <a class="collapsed btn" data-bs-toggle="collapse" href="#collapseTwo">
+              <span><b>RESIDENT LIST</b></span> 
+        </a>
+        </div>
+        <div id="collapseTwo" class="collapse show" data-bs-parent="#accordion">
+          <div class="card-body">
+            <table class="table table-striped">
+              <thead class="thead-dark">
+                <tr>
+                  <th scope="col">Room Number</th>
+                  <th scope="col">Resident Id Proof</th>
+                  <th scope="col">Resident Name</th>
+                  <th scope="col">Resident Address</th>
+                  <th scope="col">Resident Phone No</th>
+                  <th scope="col">Booked Date</th>
+                  <th scope="col">CheckIn Time</th>
+                  <th scope="col">Check Out Time</th>
+                  <th scope="col">Action</th>
+                </tr>
+              </thead>
+              <tbody class="data-align">
+                <!-- {{roomList}} -->
+                <tr *ngFor="let data of residentList">
+                  <td>{{data.roomNumber}}-{{data.roomType}}</td>
+                  <td>{{data.residentIdProof}}</td>
+                  <td>{{data.residentName}}</td>
+                  <td>{{data.residentAddress}}</td> 
+                  <td>{{data.residentPhoneNo}}</td>
+                  <td>{{data.bookedDateTime}}</td>
+                  <td>{{data.checkInTime}}</td>
+                  <td>{{data.checkOutTime}}</td>
+                  <td>
+                    <a class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
+                    <a class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
+                  </td> 
+                </tr>
+                
+              </tbody>
+            </table>
+            
+           
+          </div>
+        </div>
+      </div>
+    
+    </div>
+  </div>
