@@ -10,7 +10,8 @@ export class CommonService {
   constructor(
     private httpClient: HttpClient
   ) { }
-  private baseUrl = 'https://room-management-server.herokuapp.com';
+  //private baseUrl = 'https://room-management-server.herokuapp.com';
+  private baseUrl = 'http://localhost:9000';
 
   addRoom(roomModel: Object): Observable<any> {
     const httpOptions = {
@@ -89,5 +90,15 @@ export class CommonService {
       })
     }
     return this.httpClient.get(`${this.baseUrl}/room/find-all-without-booked-room`,httpOptions);
+  }
+
+  checkOutResident(residentId:number):Observable<any>{
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type':  'application/json',
+        'Accept': 'application/json',
+      })
+    }
+    return this.httpClient.get(`${this.baseUrl}/resident/check-out-resident/` + residentId,httpOptions);
   }
 }

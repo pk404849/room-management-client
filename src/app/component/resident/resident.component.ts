@@ -49,5 +49,12 @@ export class ResidentComponent implements OnInit {
       console.log(this.residentList);
     });
   }
+  checkOutResident(residentId:number){
+    this.commonService.checkOutResident(residentId).subscribe((res:any)=>{
+      if(res.status && res.message != null && res.message !=''){
+        alert(res.message);
+      }
+    })
+  }
 
 }

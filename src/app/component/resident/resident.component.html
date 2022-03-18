@@ -43,19 +43,6 @@
                         <input type="text" class="form-control" id="residentPhoneNo" [(ngModel)]="residentModel.residentPhoneNo" placeholder="Enter resident phone no.">
                       </div>
                     </div> 
-                    <!-- <div class="form-group row">
-                        <label for="checkInTime" class="col-sm-3 col-form-label"><b>Check In Time</b></label>
-                        <div class="col-sm-9">
-                          <input type="date" class="form-control" id="checkInTime" [(ngModel)]="residentModel.checkInTime" placeholder="Enter checkIn time">
-                        </div>
-                      </div> 
-                      <div class="form-group row">
-                        <label for="checkOutTime" class="col-sm-3 col-form-label"><b>Check Out Time</b></label>
-                        <div class="col-sm-9">
-                          <input type="date" class="form-control" id="checkOutTime" [(ngModel)]="residentModel.checkOutTime" placeholder="Enter checkOut Time">
-                        </div>
-                      </div>  -->
-                     
                     <div class="form-group row">
                       <label for="roomNumber" class="col-sm-3 col-form-label"></label>
                       <div class="col-sm-9">
@@ -101,7 +88,7 @@
                   <td>{{data.checkOutTime}}</td>
                   <td>
                     <a class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
-                    <a class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
+                    <a class="delete" title="CheckOut" data-toggle="tooltip" (click)="checkOutResident(data.id)"><i class="material-icons">&#xE872;</i></a>
                   </td> 
                 </tr>
                 
