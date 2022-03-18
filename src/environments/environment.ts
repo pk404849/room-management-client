@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  baseUrl = 'https://room-management-server.herokuapp.com';
+  baseUrl : 'https://room-management-server.herokuapp.com',
   //baseUrl : 'http://localhost:9000',
 };
 
